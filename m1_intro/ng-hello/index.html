@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 ng-controller="HelloWorldCtrl as vm">{{ vm.helloMessage }}</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script>
+        angular.module('app', [])
+                .controller('HelloWorldCtrl', HelloWorldCtrl)
+
+        function HelloWorldCtrl() {
+            var vm = this;
+
+            vm.helloMessage = "Hello World";
+        }
+    </script>
+</body>
+</html>
