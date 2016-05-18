@@ -19,6 +19,10 @@ select, textarea {
     user-select: none;
 }
 
+ul.sessionThumbnails {
+    list-style-type: none;
+}
+
 .votingWidget {
   height: 64px;
   padding: 7px;

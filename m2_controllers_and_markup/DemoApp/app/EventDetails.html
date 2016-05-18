@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <div class="container">
@@ -33,14 +34,29 @@
                 <div><strong>Time:</strong> {{ event.time }}</div>
             </div>
             <div class="col-xs-6">
-                <div>
+                <address>
                     <strong>Address:</strong><br>
                     {{ event.location.address}} <br>
                     {{ event.location.city }},
                     {{ event.location.state }}
-                </div>
+                </address>
             </div>
         </div>
+        <hr>
+        <h3>Sessions</h3>
+        <ul class="sessionThumbnails">
+            <li ng-repeat="session in event.sessions">
+                <div class="row session">
+                    <div class="well col-xs-9">
+                        <h4 class="well-title">{{ session.name }}</h4>
+                        <h6 style="margin-top: -10px">{{session.creatorName}}</h6>
+                        <span>Duration: {{session.duration}}</span><br>
+                        <span>Level: {{session.level}}</span>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 
