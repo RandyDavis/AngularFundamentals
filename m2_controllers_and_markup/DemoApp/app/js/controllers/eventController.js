@@ -11,9 +11,10 @@ eventsApp.controller('EventController',
         $scope.boolValue = false;
         $scope.myClass = "blue";
         $scope.buttonDisabled = true;
+        $scope.sortOrder = "name",
         $scope.event = {
             name: 'Angular Boot Camp',
-            date: '1/1/2013',
+            date: 1359781015626,
             time: '10:30am',
             location: {
                 address: 'Google Headquarters',
@@ -28,7 +29,7 @@ eventsApp.controller('EventController',
                     duration: '1 hr',
                     level: 'Advanced',
                     abstract: 'In this session you will learn the ins and outs of directives!',
-                    upVoteCount: 0
+                    upVoteCount: 4
                 },
                 {
                     name: 'Scopes for fun and profit',
@@ -36,7 +37,7 @@ eventsApp.controller('EventController',
                     duration: '30 mins',
                     level: 'Introductory',
                     abstract: 'This session will take a closer look at scopes. Learn what they do, how they do it, and how to get them to do ir for you',
-                    upVoteCount: 0
+                    upVoteCount: 2
                 },
                 {
                     name: 'Well Behaved Controllers',
@@ -44,7 +45,7 @@ eventsApp.controller('EventController',
                     duration: '2 hr',
                     level: 'Intermediate',
                     abstract: 'Controllers are the beginning of everything Angular does.',
-                    upVoteCount: 0
+                    upVoteCount: 8
                 }
             ]
         }

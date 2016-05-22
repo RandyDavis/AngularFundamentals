@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             <div class="col-xs-11">
-                <h2 ng-class="myClass" ng-bind-template="{{event.name}} {{event.date}}"><br></h2>
+                <h2 ng-class="myClass" ng-bind-template="{{event.name | uppercase}} {{event.date | date}}"><br></h2>
             </div>
         </div>
 
@@ -39,8 +39,9 @@
 
         <div class="row">
             <div class="col-xs-3">
-                <div><strong>Date:</strong> {{ event.date }}</div>
+                <div><strong>Date:</strong> {{ event.date | date}}</div>
                 <div><strong>Time:</strong> {{ event.time }}</div>
+                <div><strong>Price:</strong> {{ 34 | currency }}</div>
             </div>
             <div class="col-xs-6">
                 <address>
@@ -51,10 +52,25 @@
                 </address>
             </div>
         </div>
+
+        <div>{{ 3 | number:2}}</div>
+        <div>{{ {a:3, b:'hi', c:{aa: 35} } | json }}</div>
         <hr>
         <h3>Sessions</h3>
+        Order By:
+        <select ng-model="sortOrder" class="form-control">
+            <option selected value="name">Name</option>
+            <option value="-upVoteCount">Votes</option>
+        </select>
+        Show:
+        <select ng-model="query.level" class="form-control">
+            <option selected value="">All</option>
+            <option selected value="introductory">Introductory</option>
+            <option selected value="intermediate">Intermediate</option>
+            <option selected value="advanced">Advanced</option>
+        </select><br>
         <ul class="sessionThumbnails">
-            <li ng-repeat="session in event.sessions">
+            <li ng-repeat="session in event.sessions | orderBy:sortOrder | limitTo:2 | filter:query">
                 <div class="row session">
                     <div class="col-xs-1 well votingWidget">
                         <div class="votingButton" ng-click="upVoteSession(session)">
