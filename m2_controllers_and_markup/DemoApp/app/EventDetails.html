@@ -27,6 +27,10 @@
             </div>
         </div>
 
+        <button class="btn btn-primary" ng-disabled="buttonDisabled">Disabled</button>
+
+        <div ng-non-bindable>{{1 + 2}}</div>
+
         <div ng-bind-html-unsafe="snippet">some title</div>
         <div ng-bind-html="snippet">some title</div>
 
