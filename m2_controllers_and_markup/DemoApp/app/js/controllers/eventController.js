@@ -4,7 +4,7 @@
 'use strict';
 
 eventsApp.controller('EventController',
-    function EventController($scope, eventData) {
+    function EventController($scope, eventData, $log) {
 
         $scope.myStyle = {color: 'red'};
         $scope.snippet = '<span style="color: red">hi there</span>';
@@ -12,8 +12,10 @@ eventsApp.controller('EventController',
         $scope.myClass = "blue";
         $scope.buttonDisabled = true;
         $scope.sortOrder = "name";
-        eventData.getEvent(function (event) {
-            $scope.event = event;
+        eventData.getEvent()
+            .success(function(event) { $scope.event = event; })
+            .error(function (data, status, headers, config) {
+                $log.warn(data, status, headers, config);
         });
 
         $scope.upVoteSession = function (session) {
@@ -23,5 +25,4 @@ eventsApp.controller('EventController',
         $scope.downVoteSession = function (session) {
             session.upVoteCount--;
         }
-    }
-);
+    });
